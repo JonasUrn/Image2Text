@@ -2,7 +2,7 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url="https://api.thehive.ai/api/v3/",
-    api_key="Swy1rZG0LrDaj5B5mSJ2Ssx86IL4YK03" 
+    api_key="<API_KEY>" 
 )
 
 def get_completion(prompt, image_link, model = "meta-llama/llama-3.2-11b-vision-instruct"):
