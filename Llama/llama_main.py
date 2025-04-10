@@ -41,7 +41,7 @@ def llama_main(image_links):
     start_time = time.time()
     client = OpenAI(
         base_url="https://api.thehive.ai/api/v3/",
-        api_key="PY7s9DzEhLUMF8MsdyI5XZ3yJuuYgkMW"
+        api_key=""
     )
     counter = 1
     for link in image_links:

@@ -13,7 +13,7 @@ def qwen_get_caption(link, model, processor, device) -> str:
                     "type": "image",
                     "image": link,
                 },
-                {"type": "text", "text": "Describe this image in detail."},
+                {"type": "text", "text": "Describe this image in detail. Focus on the main character of the photo."},
             ],
         }
     ]
