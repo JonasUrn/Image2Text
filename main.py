@@ -4,7 +4,7 @@ from Salesforce.salesforce_main import salesforce_main
 from Llama.llama_main import llama_main
 from Florence.florence_main import florence_main
 from Google.gemma_main import gemma_main
-from openbmp.openbmp_main import openbmp_main
+from Qwen.qwen_main import qwen_main
 from Llava.llava_mian import llava_main
 from Bipin.bipin_main import bipin_main
 from Noamrot.noamrot_main import noamrot_main
@@ -22,10 +22,10 @@ if __name__ == "__main__":
     #salesforce_main(image_links)
     #llama_main(image_links)
     #nlp_connect_main(image_links)
-    #unum_main(image_links)
-    # florence_main(image_links)
+    # unum_main(image_links)
+    #florence_main(image_links)
     ##gemma_main(image_links)
-    openbmp_main(image_links)
-    #llava_main(image_links)
+    # qwen_main(image_links)
+    llava_main(image_links)
     # bipin_main(image_links)
     # noamrot_main(image_links)

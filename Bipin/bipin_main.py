@@ -13,7 +13,7 @@ def bipin_get_caption(link, model, feature_extractor, tokenizer, device):
     pixel_values = feature_extractor(images=[img], return_tensors="pt").pixel_values
     pixel_values = pixel_values.to(device)
     
-    max_length = 128
+    max_length = 500
     num_beams = 4
 
     output_ids = model.generate(pixel_values, num_beams=num_beams, max_length=max_length)
@@ -23,12 +23,10 @@ def bipin_get_caption(link, model, feature_extractor, tokenizer, device):
 
 def bipin_main(links):
     print("bipin/image-caption-generator")
-    print("PyTorch version:", torch.__version__)
     print("CUDA available:", torch.cuda.is_available())
     print("CUDA version:", torch.version.cuda)
     print("Device count:", torch.cuda.device_count())
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Using device: " + device)
     counter = 1
     start_time = time.time()
     model_name = "bipin/image-caption-generator"
@@ -36,7 +34,6 @@ def bipin_main(links):
     feature_extractor = ViTFeatureExtractor.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained("gpt2")
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: " + device)
     model.to(device)
     for image in links:
         caption = bipin_get_caption(image, model, feature_extractor, tokenizer, device)

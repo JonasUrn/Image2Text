@@ -23,8 +23,8 @@ def get_images() -> list:
 # print(torch.cuda.is_bf16_supported())
 
 def unum_get_caption(image_url, model, processor, device) -> str:
-    prompt = "Describe the image."
-    response = requests.get(image_url)
+    prompt = "Describe the image in detail. Focus on the character and its features. Do not associate anyone with real-life personas, liek actors or profesionals athletes."
+    response = requests.get(image_url, stream=True)
     image = Image.open(BytesIO(response.content))
     
     inputs = processor(text=[prompt], images=[image], return_tensors="pt")

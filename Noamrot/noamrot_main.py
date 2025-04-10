@@ -10,7 +10,13 @@ def noamrot_get_caption(link, model, processor):
     
     inputs = processor(image, "Picture", return_tensors='pt').to(model.device)
     
-    out = model.generate(**inputs, num_beams=5)
+    out = model.generate(**inputs, 
+        num_beams=5,
+        max_new_tokens=100,  
+        early_stopping=True,       
+        no_repeat_ngram_size=2,     
+        length_penalty=1.0   
+        )
     
     caption = processor.decode(out[0], skip_special_tokens=True)
     
